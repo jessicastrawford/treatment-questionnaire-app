@@ -1,0 +1,651 @@
+{
+  "meta": {
+    "version": "1.0",
+    "startQuestion": "body_area",
+    "title": "Treatment Finder",
+    "description": "Discover your personalised aesthetic journey"
+  },
+  "questions": {
+    "body_area": {
+      "id": "body_area",
+      "text": "Is your concern related to head/face or other parts of your body?",
+      "type": "single-choice",
+      "options": [
+        {
+          "next": "face_concern_area",
+          "text": "Head/Face",
+          "value": "head_face"
+        },
+        {
+          "next": "other_body_areas",
+          "text": "Other parts of body",
+          "value": "other_body"
+        },
+        {
+          "next": "",
+          "text": "I'm not sure",
+          "value": "not_sure"
+        }
+      ],
+      "category": "initial-selection"
+    },
+    "chin_concerns": {
+      "id": "chin_concerns",
+      "text": "What is your concern with your chin?",
+      "type": "multiple-choice",
+      "options": [
+        {
+          "next": "results_double_chin",
+          "text": "Double Chin",
+          "value": "double_chin"
+        },
+        {
+          "next": "results_jawline_contouring",
+          "text": "Jawline Definition",
+          "value": "jawline_definition"
+        }
+      ],
+      "category": "chin",
+      "maxSelections": 3
+    },
+    "eyes_concerns": {
+      "id": "eyes_concerns",
+      "text": "What is your concern with your eyes?",
+      "type": "multiple-choice",
+      "options": [
+        {
+          "next": "results_eye_wrinkles",
+          "text": "Crows Feet (Eye Wrinkles)",
+          "value": "crow_feet"
+        },
+        {
+          "next": "results_under_eye",
+          "text": "Under-Eye Bags/Dark Circles",
+          "value": "under_eye"
+        },
+        {
+          "next": "results_eye_lift",
+          "text": "Droopy Eyelids",
+          "value": "droopy_lids"
+        },
+        {
+          "next": "results_brow_lift",
+          "text": "Brow Lift",
+          "value": "brow_lift"
+        }
+      ],
+      "category": "eyes",
+      "maxSelections": 3
+    },
+    "hair_concerns": {
+      "id": "hair_concerns",
+      "text": "What is your hair concern?",
+      "type": "multiple-choice",
+      "options": [
+        {
+          "next": "results_hair_loss",
+          "text": "Hair Loss",
+          "value": "hair_loss"
+        },
+        {
+          "next": "results_hair_thinning",
+          "text": "Hair Thinning",
+          "value": "hair_thinning"
+        },
+        {
+          "next": "results_hair_restoration",
+          "text": "Male Pattern Baldness",
+          "value": "baldness"
+        }
+      ],
+      "category": "hair",
+      "maxSelections": 3
+    },
+    "neck_concerns": {
+      "id": "neck_concerns",
+      "text": "What is your concern with your neck/jawline?",
+      "type": "multiple-choice",
+      "options": [
+        {
+          "next": "results_double_chin",
+          "text": "Double Chin",
+          "value": "double_chin"
+        },
+        {
+          "next": "results_neck_tightening",
+          "text": "Neck Bands/Lines",
+          "value": "neck_bands"
+        },
+        {
+          "next": "results_jawline_contouring",
+          "text": "Jawline Definition",
+          "value": "jawline_definition"
+        },
+        {
+          "next": "results_neck_lift",
+          "text": "Neck Sagging",
+          "value": "neck_sagging"
+        }
+      ],
+      "category": "neck",
+      "maxSelections": 3
+    },
+    "nose_concerns": {
+      "id": "nose_concerns",
+      "text": "What is your concern about your nose?",
+      "type": "multiple-choice",
+      "options": [
+        {
+          "next": "results_nose_reshaping",
+          "text": "Nose Shape/Profile",
+          "value": "shape"
+        },
+        {
+          "next": "results_nose_reshaping",
+          "text": "Nose Size",
+          "value": "size"
+        },
+        {
+          "next": "results_nose_reshaping",
+          "text": "Nose Bridge",
+          "value": "bridge"
+        }
+      ],
+      "category": "nose",
+      "maxSelections": 3
+    },
+    "skin_concerns": {
+      "id": "skin_concerns",
+      "text": "What is your main skin concern?",
+      "type": "multiple-choice",
+      "options": [
+        {
+          "next": "results_anti_aging",
+          "text": "Wrinkles & Fine Lines",
+          "value": "wrinkles"
+        },
+        {
+          "next": "results_skin_rejuvenation",
+          "text": "Skin Texture & Rejuvenation",
+          "value": "texture"
+        },
+        {
+          "next": "results_acne_treatment",
+          "text": "Acne & Breakouts",
+          "value": "acne"
+        },
+        {
+          "next": "results_skin_tightening",
+          "text": "Firmness & Elasticity",
+          "value": "firmness"
+        },
+        {
+          "next": "results_pigmentation",
+          "text": "Sun Damage & Pigmentation",
+          "value": "sun_damage"
+        }
+      ],
+      "category": "skin",
+      "maxSelections": 3
+    },
+    "mouth_concerns": {
+      "id": "mouth_concerns",
+      "text": "What is your concern about your mouth/lips?",
+      "type": "multiple-choice",
+      "options": [
+        {
+          "next": "results_lip_fillers",
+          "text": "Lip Volume Enhancement",
+          "value": "lip_volume"
+        },
+        {
+          "next": "results_lip_enhancement",
+          "text": "Lip Shape & Definition",
+          "value": "lip_shape"
+        },
+        {
+          "next": "results_mouth_lines",
+          "text": "Lines Around Mouth",
+          "value": "mouth_lines"
+        },
+        {
+          "next": "results_gummy_smile",
+          "text": "Gummy Smile",
+          "value": "gummy_smile"
+        }
+      ],
+      "category": "mouth",
+      "maxSelections": 3
+    },
+    "cheeks_concerns": {
+      "id": "cheeks_concerns",
+      "text": "What is your concern with your cheeks?",
+      "type": "multiple-choice",
+      "options": [
+        {
+          "next": "results_cheek_fillers",
+          "text": "Volume Loss",
+          "value": "volume_loss"
+        },
+        {
+          "next": "results_cheek_lift",
+          "text": "Sagging Cheeks",
+          "value": "sagging"
+        },
+        {
+          "next": "results_cheek_contouring",
+          "text": "Lack of Definition",
+          "value": "definition"
+        }
+      ],
+      "category": "cheeks",
+      "maxSelections": 3
+    },
+    "face_concern_area": {
+      "id": "face_concern_area",
+      "text": "Which part of your face is of concern?",
+      "type": "face-map",
+      "options": [
+        {
+          "next": "skin_concerns",
+          "text": "Skin",
+          "value": "skin"
+        },
+        {
+          "next": "forehead_concerns",
+          "text": "Forehead",
+          "value": "forehead"
+        },
+        {
+          "next": "eyes_concerns",
+          "text": "Eyes",
+          "value": "eyes"
+        },
+        {
+          "next": "nose_concerns",
+          "text": "Nose",
+          "value": "nose"
+        },
+        {
+          "next": "mouth_concerns",
+          "text": "Mouth/Lips",
+          "value": "mouth"
+        },
+        {
+          "next": "cheeks_concerns",
+          "text": "Cheeks",
+          "value": "cheeks"
+        },
+        {
+          "next": "hair_concerns",
+          "text": "Hair",
+          "value": "hair"
+        },
+        {
+          "next": "neck_concerns",
+          "text": "Neck/Jawline",
+          "value": "neck"
+        },
+        {
+          "next": "chin_concerns",
+          "text": "Chin",
+          "value": "chin"
+        }
+      ],
+      "category": "face"
+    },
+    "forehead_concerns": {
+      "id": "forehead_concerns",
+      "text": "What is your concern with your forehead?",
+      "type": "multiple-choice",
+      "options": [
+        {
+          "next": "results_eye_wrinkles",
+          "text": "Crows Feet (Eye Wrinkles)",
+          "value": "crow_feet"
+        },
+        {
+          "next": "results_under_eye",
+          "text": "Under-Eye Bags/Dark Circles",
+          "value": "under_eye"
+        },
+        {
+          "next": "results_eye_lift",
+          "text": "Droopy Eyelids",
+          "value": "droopy_lids"
+        },
+        {
+          "next": "results_brow_lift",
+          "text": "Brow Lift",
+          "value": "brow_lift"
+        }
+      ],
+      "category": "forehead",
+      "maxSelections": 3
+    }
+  },
+  "results": {
+    "results_eye_lift": {
+      "id": "results_eye_lift",
+      "title": "Eye Lift Treatments",
+      "treatments": ["hifu_face_lift", "thread_lifts"],
+      "description": "Non-surgical solutions for droopy eyelids"
+    },
+    "results_brow_lift": {
+      "id": "results_brow_lift",
+      "title": "Brow Lift Treatments",
+      "treatments": ["anti_wrinkle_injections", "hifu_face_lift"],
+      "description": "Lift and define your brow area"
+    },
+    "results_hair_loss": {
+      "id": "results_hair_loss",
+      "title": "Hair Loss Solutions",
+      "treatments": ["polynucleotides_pdrn", "morpheus8_hair"],
+      "description": "Advanced treatments to combat hair loss"
+    },
+    "results_neck_lift": {
+      "id": "results_neck_lift",
+      "title": "Neck Lift Treatment",
+      "treatments": ["hifu_face_lift", "thread_lifts"],
+      "description": "Lift and tighten sagging neck skin"
+    },
+    "results_under_eye": {
+      "id": "results_under_eye",
+      "title": "Under-Eye Treatments",
+      "treatments": ["dermal_fillers", "hifu_face_lift"],
+      "description": "Solutions for under-eye bags and dark circles"
+    },
+    "results_anti_aging": {
+      "id": "results_anti_aging",
+      "title": "Anti-Aging Treatments",
+      "treatments": ["anti_wrinkle_injections", "dermal_fillers", "hifu_face_lift", "profhilo"],
+      "description": "Effective treatments to reduce wrinkles and fine lines"
+    },
+    "results_cheek_lift": {
+      "id": "results_cheek_lift",
+      "title": "Cheek Lift Treatments",
+      "treatments": ["hifu_face_lift", "thread_lifts"],
+      "description": "Lift sagging cheeks for a more youthful appearance"
+    },
+    "results_double_chin": {
+      "id": "results_double_chin",
+      "title": "Double Chin Treatment",
+      "treatments": ["hifu_face_lift", "anti_wrinkle_injections"],
+      "description": "Eliminate double chin for a defined jawline"
+    },
+    "results_gummy_smile": {
+      "id": "results_gummy_smile",
+      "title": "Gummy Smile Treatment",
+      "treatments": ["anti_wrinkle_injections"],
+      "description": "Reduce excessive gum showing when you smile"
+    },
+    "results_lip_fillers": {
+      "id": "results_lip_fillers",
+      "title": "Lip Enhancement",
+      "treatments": ["dermal_fillers"],
+      "description": "Add volume and definition to your lips"
+    },
+    "results_mouth_lines": {
+      "id": "results_mouth_lines",
+      "title": "Mouth Lines Treatment",
+      "treatments": ["anti_wrinkle_injections", "dermal_fillers"],
+      "description": "Smooth lines around the mouth area"
+    },
+    "results_eye_wrinkles": {
+      "id": "results_eye_wrinkles",
+      "title": "Eye Wrinkle Treatments",
+      "treatments": ["anti_wrinkle_injections", "hifu_face_lift"],
+      "description": "Specialized treatments for crows feet and eye area"
+    },
+    "results_pigmentation": {
+      "id": "results_pigmentation",
+      "title": "Pigmentation & Sun Damage",
+      "treatments": ["dermalux_led", "tixel_treatment", "profhilo"],
+      "description": "Treatments to even skin tone and reduce sun damage"
+    },
+    "results_cheek_fillers": {
+      "id": "results_cheek_fillers",
+      "title": "Cheek Enhancement",
+      "treatments": ["dermal_fillers", "sculptra"],
+      "description": "Restore volume and definition to your cheeks"
+    },
+    "results_hair_thinning": {
+      "id": "results_hair_thinning",
+      "title": "Hair Thinning Treatment",
+      "treatments": ["polynucleotides_pdrn", "dermalux_led"],
+      "description": "Strengthen and thicken your existing hair"
+    },
+    "results_acne_treatment": {
+      "id": "results_acne_treatment",
+      "title": "Acne Treatment Solutions",
+      "treatments": ["dermalux_led", "microneedling", "tixel_treatment"],
+      "description": "Advanced treatments for acne and breakout-prone skin"
+    },
+    "results_nose_reshaping": {
+      "id": "results_nose_reshaping",
+      "title": "Non-Surgical Nose Job",
+      "treatments": ["dermal_fillers"],
+      "description": "Reshape your nose without surgery"
+    },
+    "results_lip_enhancement": {
+      "id": "results_lip_enhancement",
+      "title": "Lip Shape & Definition",
+      "treatments": ["dermal_fillers"],
+      "description": "Enhance your lip shape and borders"
+    },
+    "results_neck_tightening": {
+      "id": "results_neck_tightening",
+      "title": "Neck Tightening",
+      "treatments": ["hifu_face_lift", "anti_wrinkle_injections"],
+      "description": "Tighten loose neck skin and reduce bands"
+    },
+    "results_skin_tightening": {
+      "id": "results_skin_tightening",
+      "title": "Skin Tightening Treatments",
+      "treatments": ["hifu_face_lift", "morpheus8", "thread_lifts"],
+      "description": "Non-surgical solutions for firmer, more elastic skin"
+    },
+    "results_cheek_contouring": {
+      "id": "results_cheek_contouring",
+      "title": "Cheek Contouring",
+      "treatments": ["dermal_fillers", "anti_wrinkle_injections"],
+      "description": "Define and sculpt your cheek area"
+    },
+    "results_hair_restoration": {
+      "id": "results_hair_restoration",
+      "title": "Hair Restoration",
+      "treatments": ["polynucleotides_pdrn", "morpheus8_hair"],
+      "description": "Comprehensive hair restoration solutions"
+    },
+    "results_skin_rejuvenation": {
+      "id": "results_skin_rejuvenation",
+      "title": "Skin Rejuvenation",
+      "treatments": ["profhilo", "microneedling", "dermalux_led", "tixel_treatment"],
+      "description": "Comprehensive skin renewal and texture improvement"
+    },
+    "results_jawline_contouring": {
+      "id": "results_jawline_contouring",
+      "title": "Jawline Contouring",
+      "treatments": ["dermal_fillers", "anti_wrinkle_injections"],
+      "description": "Define and sculpt your jawline"
+    }
+  },
+  "treatments": {
+    "profhilo": {
+      "id": "profhilo",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/profhilo/",
+      "name": "Profhilo",
+      "areas": ["Face", "Neck", "Décolletage", "Hands"],
+      "image": "https://images.squarespace-cdn.com/content/v1/603d4fb3f9eaef5a36145baf/8cf8efab-ba56-4557-9878-347a426d1120/knees+b%26a.png?format=1000w",
+      "downtime": "1-3",
+      "duration": "30 minutes",
+      "price_from": "£320",
+      "description": "Revolutionary skin remodelling treatment for hydration and elasticity",
+      "results_last": "6 months",
+      "results_visible": "4-6 weeks",
+      "number_of_treatments": "2"
+    },
+    "sculptra": {
+      "id": "sculptra",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/sculptra-the-liquid-facelift/",
+      "name": "Sculptra (Liquid Facelift)",
+      "areas": ["Cheeks", "Temples", "Jawline"],
+      "image": "https://www.skinexcellenceclinics.co.uk/wp-content/uploads/2024/10/6432c7dbbc4ac1c736497497_b4a-sculptra1.jpeg",
+      "downtime": "0-1",
+      "duration": "45 minutes",
+      "price_from": "£500",
+      "description": "Collagen-stimulating treatment for natural volume restoration",
+      "results_last": "18-24 months",
+      "results_visible": "6-8 weeks",
+      "number_of_treatments": "3"
+    },
+    "morpheus8": {
+      "id": "morpheus8",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/morpheus8-skin-lift/",
+      "name": "Morpheus8 Skin Lift",
+      "areas": ["Face", "Neck", "Body", "Scalp"],
+      "image": "https://www.skinexcellenceclinics.co.uk/wp-content/uploads/2024/10/643209788e9cf5af256327fc_BF-Face-Side.jpeg",
+      "downtime": "5-7",
+      "duration": "45-60 minutes",
+      "price_from": "£1250",
+      "description": "Fractional radiofrequency microneedling for skin tightening",
+      "results_last": "12+ months",
+      "results_visible": "2-4 weeks",
+      "number_of_treatments": "3"
+    },
+    "dermalux_led": {
+      "id": "dermalux_led",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/dermalux/",
+      "name": "Dermalux LED Phototherapy",
+      "areas": ["Face", "Scalp", "Body"],
+      "image": "https://www.skinexcellenceclinics.co.uk/wp-content/uploads/2025/08/Dermalux-Case-Study-1.webp",
+      "downtime": "0",
+      "duration": "20-30 minutes",
+      "price_from": "£80",
+      "description": "LED light therapy for acne, anti-aging, and skin rejuvenation",
+      "results_last": "Ongoing maintenance",
+      "results_visible": "2-3 treatments",
+      "number_of_treatments": "1"
+    },
+    "thread_lifts": {
+      "id": "thread_lifts",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/aptos-thread-lifts/",
+      "name": "Aptos Thread Lifts",
+      "areas": ["Face", "Neck", "Brow"],
+      "image": "https://www.skinexcellenceclinics.co.uk/wp-content/uploads/2024/09/66438ef7a3f165eda0a9bb7c_642da72a84111086ad6893aa_silhouette-soft-before-after.jpg",
+      "downtime": "1-3",
+      "duration": "60 minutes",
+      "price_from": "£800",
+      "description": "Non-surgical lift using dissolvable threads",
+      "results_last": "12-18 months",
+      "results_visible": "Immediately",
+      "number_of_treatments": "1"
+    },
+    "microneedling": {
+      "id": "microneedling",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/microneedling/",
+      "name": "Dermapen Microneedling",
+      "areas": ["Face", "Neck", "Body"],
+      "image": "https://dermapen.com/wp-content/uploads/dp-ba-102023-cropped.jpg",
+      "downtime": "0",
+      "duration": "45 minutes",
+      "price_from": "£200",
+      "description": "Advanced microneedling for skin texture and acne scarring",
+      "results_last": "3-6 months",
+      "results_visible": "1-2 weeks",
+      "number_of_treatments": "1"
+    },
+    "dermal_fillers": {
+      "id": "dermal_fillers",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/dermal-fillers/",
+      "name": "Dermal Fillers",
+      "areas": ["Lips", "Cheeks", "Nose", "Jawline", "Under-eye"],
+      "image": "https://www.skinexcellenceclinics.co.uk/wp-content/uploads/2024/09/643167e95c88a3691324edfb_dermal-fillers-ba-gallery.jpeg",
+      "downtime": "0-1",
+      "duration": "30-60 minutes",
+      "price_from": "£500",
+      "description": "Restore volume and smooth lines with hyaluronic acid fillers",
+      "results_last": "6-18 months",
+      "results_visible": "Immediately",
+      "number_of_treatments": "1"
+    },
+    "hifu_face_lift": {
+      "id": "hifu_face_lift",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/hifu-face-and-neck/",
+      "name": "HIFU Face & Neck Lift",
+      "areas": ["Face", "Neck", "Eyelids", "Brow"],
+      "image": "https://www.skinexcellenceclinics.co.uk/wp-content/uploads/2024/09/64316faf92ccec2d9c1753f0_Before-After-4.jpeg",
+      "downtime": "1-2",
+      "duration": "60-90 minutes",
+      "price_from": "£750",
+      "description": "Non-surgical facelift using High-Intensity Focused Ultrasound",
+      "results_last": "12-18 months",
+      "results_visible": "2-3 months",
+      "number_of_treatments": "1-2"
+    },
+    "morpheus8_hair": {
+      "id": "morpheus8_hair",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/hair-loss-treatments/",
+      "name": "Morpheus8 Hair Treatment",
+      "areas": ["Scalp"],
+      "image": "https://www.skinexcellenceclinics.co.uk/wp-content/uploads/2024/10/6433243c2bb6b46127a56082_vampire-facelift-video.jpeg",
+      "downtime": "2-3",
+      "duration": "45 minutes",
+      "price_from": "£440",
+      "description": "Radiofrequency microneedling for hair restoration",
+      "results_last": "12+ months",
+      "results_visible": "8-12 weeks",
+      "number_of_treatments": "2"
+    },
+    "tixel_treatment": {
+      "id": "tixel_treatment",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/tixel-mezotix-skin-rejuvenation/",
+      "name": "Tixel & Mezotix Treatment",
+      "areas": ["Face", "Neck", "Décolletage"],
+      "image": "https://www.skinexcellenceclinics.co.uk/wp-content/uploads/2024/10/6431797e443cd2f0488aac8a_B-A-MEZOTIX-feb-2018-11-276x300-1.jpeg",
+      "downtime": "1-2",
+      "duration": "30-45 minutes",
+      "price_from": "£300",
+      "description": "Heat-based skin resurfacing for texture and scarring",
+      "results_last": "6-12 months",
+      "results_visible": "1-2 weeks",
+      "number_of_treatments": "3"
+    },
+    "polynucleotides_pdrn": {
+      "id": "polynucleotides_pdrn",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/polynucleotides-plenhyage/",
+      "name": "Polynucleotides Skin Boosters",
+      "areas": ["Scalp", "Face", "Under-eye"],
+      "image": "https://www.skinexcellenceclinics.co.uk/wp-content/uploads/2024/10/6645d336ffd73a4d4bd3942a_6641c99a1397aaa4bd51aa64_Ellanse20Before20VS20After.jpg",
+      "downtime": "1-3",
+      "duration": "30 minutes",
+      "price_from": "£440",
+      "description": "Advanced regenerative treatment for hair loss and skin repair",
+      "results_last": "6-12 months",
+      "results_visible": "6-8 weeks",
+      "number_of_treatments": "3"
+    },
+    "anti_wrinkle_injections": {
+      "id": "anti_wrinkle_injections",
+      "url": "https://www.skinexcellenceclinics.co.uk/treatments/anti-wrinkle-injections/",
+      "name": "Anti-Wrinkle Injections (Botox™)",
+      "areas": ["Forehead", "Crows feet", "Frown lines", "Lip lines"],
+      "image": "https://www.skinexcellenceclinics.co.uk/wp-content/uploads/2024/09/642da52a445faccdc92123af_botoxb4a-10.jpeg",
+      "downtime": "0",
+      "duration": "15-30 minutes",
+      "price_from": "£190",
+      "description": "Reduce wrinkles and fine lines with FDA-approved botulinum toxin",
+      "results_last": "3-4 months",
+      "results_visible": "3-7 days",
+      "number_of_treatments": "1"
+    }
+  },
+  "config": {
+    "maxSteps": 3,
+    "showProgress": true,
+    "progressTracking": true,
+    "analyticsTracking": true,
+    "animationDuration": 300,
+    "allowBackNavigation": true
+  }
+}
