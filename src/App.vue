@@ -1,11 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import QuestionnaireApp from '@/components/QuestionnaireApp.vue'
+import QuestionnaireView from './views/QuestionnaireView.vue'
+
+console.log('📱 App: Starting up')
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <!-- <QuestionnaireView /> -->
+  <RouterView></RouterView>
 </template>
 
 <style scoped></style>
