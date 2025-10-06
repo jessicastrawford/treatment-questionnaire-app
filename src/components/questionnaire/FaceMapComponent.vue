@@ -1,15 +1,14 @@
-<!-- src/components/FaceMapComponent.vue -->
 <template>
-  <div class="flex relative">
-    <div class="mt-4 w-[218px] absolute">
+  <div class="relative mt-4 flex flex-col-reverse items-center lg:mt-0 lg:flex-row lg:items-start">
+    <div class="relative mt-4 w-[218px] text-center lg:absolute lg:text-start">
       <span
         v-if="selectedValue"
-        class="inline-block py-3 px-6 rounded text-white border border-[#ff6900] bg-[#ff6900]"
+        class="inline-block rounded border border-[var(--color-luminous-vivid-orange)] bg-[var(--color-luminous-vivid-orange)] px-6 py-3 text-white"
       >
         Selected: {{ formatSelectedValue(selectedValue) }}
       </span>
     </div>
-    <div class="relative max-w-sm mx-auto">
+    <div class="relative mx-auto max-w-sm">
       <!--  -->
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -28,10 +27,7 @@
           cy="203.89"
           rx="35.11"
           ry="24.72"
-          :class="[
-            'clickable-area',
-            { selected: selectedValue === 'eyes', hovered: hoveredArea === 'eyes' },
-          ]"
+          :class="['clickable-area', { selected: selectedValue === 'eyes', hovered: hoveredArea === 'eyes' }]"
           @click="selectArea('eyes')"
           @mouseenter="hoveredArea = 'eyes'"
           @mouseleave="hoveredArea = null"
@@ -40,10 +36,7 @@
           <path
             class="cls-16"
             d="M200.27,265.15c6.43-6.21,7.13-16.64,1.32-23.47-2.29-2.7-7.47-8.37-15.66-7.84-14.55.94-20.24,4.23-33.3.79-7.08-1.86-19.94-6.92-27.92-24.57-1.79-3.96-4.58-11.34-5.14-14.89s-5.59-4.14-6.76-.6c-1.68,5.1-3.02,12.7-2.5,23.65.96,20.49,20.38,52.61,36.14,67.99,14.7,14.33,27.8,1.64,27.8,1.64,0,0,14.65-11.72,26.03-22.71Z"
-            :class="[
-              'clickable-area',
-              { selected: selectedValue === 'cheeks', hovered: hoveredArea === 'cheeks' },
-            ]"
+            :class="['clickable-area', { selected: selectedValue === 'cheeks', hovered: hoveredArea === 'cheeks' }]"
             @click="selectArea('cheeks')"
             @mouseenter="hoveredArea = 'cheeks'"
             @mouseleave="hoveredArea = null"
@@ -57,10 +50,7 @@
           <path
             class="cls-16"
             d="M117.8,261.53c2.17,4.42,4.72,8.63,7.63,12.59,8.18,11.14,29.69,35.79,37.03,45.37,8.35,10.9,6.31,35.68,5.07,43.9-.85,5.63-6.23,12.13-10.58,8.47-8.73-7.36-18.14-17.74-26.76-29.82-8.16-11.44-15.52-50.59-18.27-64.83-1.68-8.69-4.17-24.07-1.37-25,2.2-.74,4.71,4.16,7.25,9.32Z"
-            :class="[
-              'clickable-area',
-              { selected: selectedValue === 'neck', hovered: hoveredArea === 'neck' },
-            ]"
+            :class="['clickable-area', { selected: selectedValue === 'neck', hovered: hoveredArea === 'neck' }]"
             @click="selectArea('neck')"
             @mouseenter="hoveredArea = 'neck'"
             @mouseleave="hoveredArea = null"
@@ -80,10 +70,7 @@
           cy="203.89"
           rx="35.11"
           ry="24.72"
-          :class="[
-            'clickable-area',
-            { selected: selectedValue === 'eyes', hovered: hoveredArea === 'eyes' },
-          ]"
+          :class="['clickable-area', { selected: selectedValue === 'eyes', hovered: hoveredArea === 'eyes' }]"
           @click="selectArea('eyes')"
           @mouseenter="hoveredArea = 'eyes'"
           @mouseleave="hoveredArea = null"
@@ -120,10 +107,7 @@
           <path
             class="cls-16"
             d="M312.47,378.53c-5.37,5.12-25.52,23.28-34.94,30.6-6.4,4.98-12.4,8.98-18.11,11.94-18.59,9.61-40.14,8.03-58.27,0-5.88-2.61-11.72-6.96-18.11-11.94-9.42-7.32-29.57-25.48-34.94-30.6-2.14-2.04,8.42,64.85,15.84,82.17,5.71,13.33,16.34,34.65,30.2,55.94,10.53,16.17,27.05,31.94,34.39,35.23.99.35,2.23.35,3.51,0,7.34-3.29,23.86-19.05,34.39-35.23,13.86-21.29,24.48-42.6,30.2-55.94,7.43-17.33,17.98-84.21,15.84-82.17Z"
-            :class="[
-              'clickable-area',
-              { selected: selectedValue === 'neck', hovered: hoveredArea === 'neck' },
-            ]"
+            :class="['clickable-area', { selected: selectedValue === 'neck', hovered: hoveredArea === 'neck' }]"
             @click="selectArea('neck')"
             @mouseenter="hoveredArea = 'neck'"
             @mouseleave="hoveredArea = null"
@@ -137,10 +121,7 @@
           <path
             class="cls-16"
             d="M322.96,61.2c-22.32-25.54-58.64-35.01-81.87-36.08-8.78-.4-17.38-.15-20.87.1-24.38,1.72-59.86,9.26-83.21,35.98-28.15,32.21-20.91,85.98,6.2,81.72,17.34-2.72,44.68,2.58,56.16,8.91,16.87,9.3,17.22,18.59,26.61,21.62,1.22.63,2.58,1,4.01.84,1.44.16,2.79-.21,4.01-.84,9.39-3.04,9.74-12.33,26.61-21.62,11.48-6.32,38.82-11.63,56.16-8.91,27.11,4.26,34.34-49.5,6.2-81.72Z"
-            :class="[
-              'clickable-area',
-              { selected: selectedValue === 'forehead', hovered: hoveredArea === 'forehead' },
-            ]"
+            :class="['clickable-area', { selected: selectedValue === 'forehead', hovered: hoveredArea === 'forehead' }]"
             @click="selectArea('forehead')"
             @mouseenter="hoveredArea = 'forehead'"
             @mouseleave="hoveredArea = null"
@@ -154,10 +135,7 @@
           <path
             class="cls-16"
             d="M332.01,41.58C306.9,12.84,266.03,2.19,239.89.99c-9.88-.45-19.55-.17-23.49.11-27.43,1.94-65.95,13.09-93.09,42.38-17.62,19.02-17.05,40.54,17.12,4.15,46.15-49.15,150.06-35.93,179.01-1.04,19.72,23.76,44.24,31.24,12.57-5.01Z"
-            :class="[
-              'clickable-area',
-              { selected: selectedValue === 'hair', hovered: hoveredArea === 'hair' },
-            ]"
+            :class="['clickable-area', { selected: selectedValue === 'hair', hovered: hoveredArea === 'hair' }]"
             @click="selectArea('hair')"
             @mouseenter="hoveredArea = 'hair'"
             @mouseleave="hoveredArea = null"
@@ -171,10 +149,7 @@
           <path
             class="cls-16"
             d="M248.91,243.47c3.07,21.69.38,44.05-18.22,44.05-19.76,0-20.91-22.36-18.22-44.05s9.22-51.65,18.22-51.65,15.28,30.82,18.22,51.65Z"
-            :class="[
-              'clickable-area',
-              { selected: selectedValue === 'nose', hovered: hoveredArea === 'nose' },
-            ]"
+            :class="['clickable-area', { selected: selectedValue === 'nose', hovered: hoveredArea === 'nose' }]"
             @click="selectArea('nose')"
             @mouseenter="hoveredArea = 'nose'"
             @mouseleave="hoveredArea = null"
@@ -188,10 +163,7 @@
           <path
             class="cls-16"
             d="M272.67,360.35c-15.53,4.52-30.62,5.91-39.48,6.32-1.66.08-3.33.08-4.99,0-8.86-.41-23.95-1.8-39.48-6.32-10.24-2.98-29.9,4.71-5.28,33.28,13.87,16.1,34.93,19.65,45.65,19.51,4.16-.05,34.98-3.42,48.85-19.51,24.63-28.57,4.96-36.26-5.28-33.28Z"
-            :class="[
-              'clickable-area',
-              { selected: selectedValue === 'chin', hovered: hoveredArea === 'chin' },
-            ]"
+            :class="['clickable-area', { selected: selectedValue === 'chin', hovered: hoveredArea === 'chin' }]"
             @click="selectArea('chin')"
             @mouseenter="hoveredArea = 'chin'"
             @mouseleave="hoveredArea = null"
@@ -205,31 +177,19 @@
           <path
             class="cls-16"
             d="M275.97,330.14s-10.36-7.02-26-11.68c-15.64-4.66-23.06-3.15-33.76-.89-10.39,2.19-34.29,13.08-34.29,13.08,0,0,20.92,16.35,46.62,16.76,22.24.35,47.43-17.27,47.43-17.27Z"
-            :class="[
-              'clickable-area',
-              { selected: selectedValue === 'mouth', hovered: hoveredArea === 'mouth' },
-            ]"
+            :class="['clickable-area', { selected: selectedValue === 'mouth', hovered: hoveredArea === 'mouth' }]"
             @click="selectArea('mouth')"
             @mouseenter="hoveredArea = 'mouth'"
             @mouseleave="hoveredArea = null"
           />
           <g>
-            <path
-              class="cls-6"
-              d="M270.48,333.61c3.44-2.04,5.49-3.47,5.49-3.47,0,0-2.01-1.36-5.6-3.29"
-            />
+            <path class="cls-6" d="M270.48,333.61c3.44-2.04,5.49-3.47,5.49-3.47,0,0-2.01-1.36-5.6-3.29" />
             <path
               class="cls-13"
               d="M259.15,321.65c-2.79-1.11-5.87-2.2-9.18-3.19-15.64-4.66-23.06-3.15-33.76-.89-5.58,1.18-15.07,4.87-22.66,8.03"
             />
-            <path
-              class="cls-6"
-              d="M187.86,328.02c-3.57,1.55-5.94,2.63-5.94,2.63,0,0,1.94,1.52,5.38,3.64"
-            />
-            <path
-              class="cls-2"
-              d="M198.44,340.21c8.13,3.66,18.64,7.01,30.1,7.19,13.01.21,27.03-5.74,36.43-10.71"
-            />
+            <path class="cls-6" d="M187.86,328.02c-3.57,1.55-5.94,2.63-5.94,2.63,0,0,1.94,1.52,5.38,3.64" />
+            <path class="cls-2" d="M198.44,340.21c8.13,3.66,18.64,7.01,30.1,7.19,13.01.21,27.03-5.74,36.43-10.71" />
           </g>
         </g>
         <path
@@ -243,60 +203,47 @@
         <path
           class="cls-5"
           d="M352.27,257.15s0-32.1-.92-44.01c-.04-8.27-1.2-14.3-2.61-18.57-1.17-3.54-6.18-3.1-6.76.6-.56,3.56-3.35,10.93-5.14,14.89-7.99,17.65-20.85,22.71-27.92,24.57-13.07,3.43-18.75.15-33.3-.79-8.2-.53-13.37,5.14-15.66,7.84-5.14,6.03-5.17,14.88-.67,21.14-.12.05-.19.07-.19.07,0,0,25.21,33.83,28.72,51.7,3.51,17.87,5.43,42.77,5.43,42.77l.08-.08c.21,2.48.47,4.58.7,6.11.85,5.63,6.23,12.13,10.58,8.47,8.73-7.36,19.83-16.69,26.76-29.82,9.02-17.1,15.52-50.59,18.27-64.83,1.12-5.78,2.59-14.52,2.63-20l.03-.06Z"
-          style="&#10;"
-          :class="[
-            'clickable-area',
-            { selected: selectedValue === 'skin', hovered: hoveredArea === 'skin' },
-          ]"
+          :class="['clickable-area', { selected: selectedValue === 'skin', hovered: hoveredArea === 'skin' }]"
           @click="selectArea('skin')"
           @mouseenter="hoveredArea = 'skin'"
           @mouseleave="hoveredArea = null"
         />
       </svg>
-      <!--  -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { OptionConfig, QuestionConfig } from '../../types/QuestionConfig'
+import { ref } from "vue";
+import type { OptionConfig, QuestionConfig } from "../../types/QuestionConfig";
 //Could use props here to keep it reusable accross the platform, but this feels a bit unncessary for this project as its facemap is only used at the moment for the questionnaire for skin excellence clinics -- if this project was to be moved into an MFE, this is something i'd think about - but in terms of this projects state, for perfomance and avoiding prop drilling im going to access the store directly here.
 
 interface Props {
-  question: QuestionConfig
+  question: QuestionConfig;
 }
 
 interface Emits {
-  (e: 'selectedArea', value: string[]): void
+  (e: "selectedArea", value: string[]): void;
 }
 
-const props = defineProps<Props>()
-const emit = defineEmits<Emits>()
+const props = defineProps<Props>();
+const emit = defineEmits<Emits>();
 
-const selectedValue = ref<string | null>(null)
-const hoveredArea = ref<string | null>(null)
+const selectedValue = ref<string | null>(null);
+const hoveredArea = ref<string | null>(null);
 
 const formatSelectedValue = (selectedValue: string) => {
-  const matchingOption = props.question.options?.find(
-    (option: OptionConfig) => option.value === selectedValue,
-  )
-  return matchingOption ? matchingOption.text : selectedValue
-}
+  const matchingOption = props.question.options?.find((option: OptionConfig) => option.value === selectedValue);
+  return matchingOption ? matchingOption.text : selectedValue;
+};
 
 function selectArea(areaValue: string) {
-  selectedValue.value = areaValue
-  emit('selectedArea', [selectedValue.value])
+  selectedValue.value = areaValue;
+  emit("selectedArea", [selectedValue.value]);
 }
 </script>
 
 <style scoped>
-.face-svg {
-  width: 100%;
-  height: auto;
-  max-width: 300px;
-}
-
 .clickable-area {
   cursor: pointer;
   transition: all 0.2s ease;
@@ -307,24 +254,12 @@ function selectArea(areaValue: string) {
 }
 
 .clickable-area.hovered {
-  fill: #bbdcdb;
+  fill: var(--color-accent-2-2);
 }
 
 .clickable-area.selected {
-  fill: #16a1a2;
+  fill: var(--color-accent-2);
 }
-
-@media (max-width: 768px) {
-  .face-map-container {
-    padding: 1rem;
-  }
-
-  .face-svg {
-    max-width: 250px;
-  }
-}
-
-/*  */
 
 .cls-1 {
   stroke-dasharray: 12.36 12.36;

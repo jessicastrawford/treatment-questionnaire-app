@@ -1,21 +1,21 @@
 <!-- src/views/QuestionnaireView.vue -->
 <template>
   <!-- Loading State -->
-  <div v-if="store.isLoading" class="min-h-screen flex items-center justify-center">
+  <div v-if="store.isLoading" class="flex min-h-screen items-center justify-center">
     <div class="text-center">
-      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
+      <div class="mx-auto h-12 w-12 animate-spin rounded-full border-b-2 border-orange-500"></div>
       <p class="mt-4 text-gray-700">Loading your questionnaire...</p>
     </div>
   </div>
 
   <!-- Main Questionnaire Interface -->
-  <div v-else-if="store.currentQuestion || store.resultPageIds.length > 0" class="min-h-screen flex fade-in">
+  <div v-else-if="store.currentQuestion || store.resultPageIds.length > 0" class="fade-in min-h-screen lg:flex">
     <TreatmentProgressSidebar />
     <div class="flex-1">
       <ResultsPage v-if="store.resultPageIds.length > 0 && !store.isInFilteringFlow" onClick="" />
       <QuestionComponent
         v-else
-        :question="store.currentQuestion!"
+        :question="store.currentQuestion"
         :has-progress="store.hasProgress"
         :progress-percentage="store.progress.percentage"
         @answer="handleAnswer"
@@ -25,14 +25,14 @@
   </div>
 
   <!-- Error State -->
-  <div v-else-if="store.error" class="min-h-screen bg-red-50 flex items-center justify-center p-4">
-    <div class="text-center max-w-lg">
-      <div class="bg-white border border-red-200 rounded-lg p-8 shadow-lg">
-        <h2 class="text-2xl font-semibold text-red-600 mb-4">Something went wrong</h2>
-        <p class="text-red-500 mb-6">{{ store.error }}</p>
+  <div v-else-if="store.error" class="flex min-h-screen items-center justify-center bg-red-50 p-4">
+    <div class="max-w-lg text-center">
+      <div class="rounded-lg border border-red-200 bg-white p-8 shadow-lg">
+        <h2 class="mb-4 text-2xl font-semibold text-red-600">Something went wrong</h2>
+        <p class="mb-6 text-red-500">{{ store.error }}</p>
         <button
           @click="store.loadQuestionnaire()"
-          class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+          class="rounded-lg bg-red-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-red-600"
         >
           Try Again
         </button>
@@ -41,10 +41,10 @@
   </div>
 
   <!-- No Question State (shouldn't normally happen) -->
-  <div v-else class="min-h-screen flex items-center justify-center">
+  <div v-else class="flex min-h-screen items-center justify-center">
     <div class="text-center">
-      <h2 class="text-xl text-gray-600 mb-4">questionnaire not ready</h2>
-      <button @click="restartQuestionnaire()" class="text-orange-600 hover:text-orange-700 underline">
+      <h2 class="mb-4 text-xl text-gray-600">questionnaire not ready</h2>
+      <button @click="restartQuestionnaire()" class="text-orange-600 underline hover:text-orange-700">
         Return to start
       </button>
     </div>

@@ -72,26 +72,33 @@ export const useQuestionnaireStore = defineStore(
       },
       //using new value questionId from currentQuestionId and setting it to the params as we move through the questionnaire
       set(questionId: string | null) {
+        // create a copy of current URL query parameters to preserve other params
+        // (future-proofing for analytics, theming, etc.) not required for this stage but good for future proofing.
         const newQuery = { ...route.query };
 
+        //navigating to results page: transform URL structure
         if (questionId === "results") {
-          delete newQuery.question;
-          newQuery.results = "true";
+          delete newQuery.question; //remove question from the params
+          newQuery.results = "true"; // then add the results to the params
 
           if (resultPageIds.value.length > 0) {
-            newQuery.resultIds = resultPageIds.value.join(",");
+            newQuery.resultIds = resultPageIds.value.join(","); // i've added the result ids to the params so that the link could be shared - they might need to share the link with the clinic as an example
           }
+
+          //otherwise if we're in the questionnaire (either from the back button or normally) continue adding the question params to the url and delete any reference to the results
         } else if (questionId) {
           newQuery.question = questionId;
           delete newQuery.results;
           delete newQuery.resultIds;
         } else {
+          //otherwise if not in results or questionniare (i.e starting again) remove all para
           delete newQuery.question;
           delete newQuery.results;
           delete newQuery.resultIds;
         }
 
-        // Only update if URL actually changes
+        // Performance optimization: only trigger router update if URL actually changes
+        // Prevents unnecessary re-renders and duplicate browser history entries
         if (JSON.stringify(newQuery) !== JSON.stringify(route.query)) {
           router.push({ query: newQuery });
         }
@@ -107,7 +114,7 @@ export const useQuestionnaireStore = defineStore(
     const currentlyFilteredTreatments = ref<Treatment[]>([]);
 
     const currentQuestion = computed(() => {
-      // ✅ Handle filtering questions first
+      // Handle filtering questions first
 
       if (currentQuestionId.value && FILTERING_QUESTIONS_CONFIG.find((q) => q.id === currentQuestionId.value)) {
         return currentFilteringQuestion.value;
@@ -128,7 +135,15 @@ export const useQuestionnaireStore = defineStore(
         return null;
       }
 
-      return filteringService.generateQuestion(currentQuestionId.value, currentlyFilteredTreatments.value);
+      const question = filteringService.generateQuestion(currentQuestionId.value, currentlyFilteredTreatments.value);
+
+      if (!question) {
+        // Invalid question detected - let user manually skip via UI
+        console.warn(`Invalid question detected: ${currentQuestionId.value}`);
+        // Could show a - skip question button in UI instead of auto-skipping <- logic to be implemented
+      }
+
+      return question;
     });
 
     // =============================================================================
@@ -160,7 +175,7 @@ export const useQuestionnaireStore = defineStore(
 
       const nextQuestionId = filteringService.getNextQuestionId(currentQuestion.value.id);
 
-      // ✅ Apply filters immediately and store result
+      // Apply filters immediately and store result
       updateCurrentlyFilteredTreatments();
       const questionId = currentQuestionId.value;
       if (!questionId) return;
@@ -181,7 +196,6 @@ export const useQuestionnaireStore = defineStore(
     function handleRegularAnswer(selectedValues: string[]) {
       if (!currentQuestion.value || selectedValues.length === 0) return false;
 
-      // Your existing logic
       navigationHistory.value.push(currentQuestion.value.id);
 
       const navigation = processQuestionAnswer(selectedValues, currentQuestion.value!.options || [], {
@@ -194,7 +208,7 @@ export const useQuestionnaireStore = defineStore(
         displayText: navigation.displayTexts,
       });
 
-      // ✅ Check if we should start filtering here we need to update the navigation history and the result ids.
+      // Check if we should start filtering here we need to update the navigation history and the result ids.
       if (navigation.shouldShowFilteringQuestions) {
         isInFilteringFlow.value = true;
         currentQuestionId.value = filteringService.getFirstQuestionId();
@@ -226,19 +240,13 @@ export const useQuestionnaireStore = defineStore(
       }
 
       const questionnaire = questionnaireData.value; // Cache the reference
-      let treatments = getUniqueTreatmentIds(questionnaire, resultPageIds.value)
-        .map((treatmentId) => questionnaire.treatments[treatmentId])
+
+      const treatments = getUniqueTreatmentIds(questionnaireData.value, resultPageIds.value)
+        .map((id) => questionnaire.treatments[id])
         .filter(Boolean);
 
-      answers.value.forEach((answer, questionId) => {
-        if (!answer.isFiltering) return;
-
-        const config = FILTERING_QUESTIONS_CONFIG.find((q) => q.id === questionId);
-        if (!config?.filterApplier) return;
-        treatments = config.filterApplier(treatments, answer.values);
-      });
-
-      currentlyFilteredTreatments.value = treatments;
+      const filteredTreatments = filteringService.applyAllFilters(treatments, answers.value);
+      currentlyFilteredTreatments.value = filteredTreatments;
     }
 
     function getUniqueTreatmentIds(questionnaireData: QuestionnaireData, resultPageIds: string[]) {

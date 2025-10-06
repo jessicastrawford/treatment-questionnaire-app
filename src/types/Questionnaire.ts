@@ -19,15 +19,15 @@ export interface AppConfig {
 
 export interface Treatment {
   id: string;
-  url: string;
+  url?: string;
   name: string;
-  areas: string[];
-  duration: string;
+  areas?: string[];
+  duration?: string;
   price_from: string;
-  description: string;
-  results_last: string;
-  results_visible: string;
-  image: string;
+  description?: string;
+  results_last?: string;
+  results_visible?: string;
+  image?: string;
   downtime: string;
   number_of_treatments: string;
 }

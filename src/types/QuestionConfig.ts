@@ -15,3 +15,9 @@ export interface QuestionConfig extends BaseQuestionConfig {
   options: OptionConfig[];
   category?: string;
 }
+
+export interface AnswerConfig {
+  values: string[];
+  displayText: string[];
+  isFiltering?: boolean;
+}

@@ -1,16 +1,16 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center p-4 relative">
+  <div class="relative flex min-h-screen items-center justify-center p-4">
     <!-- Animated Borders -->
-    <div class="text-center w-full relative z-10">
+    <div class="relative z-10 w-full text-center">
       <div
-        class="border-expand-top absolute top-0 left-1/2 transform -translate-x-1/2 h-px bg-gray-400 transition-all duration-1000 ease-out"
+        class="border-expand-top absolute top-0 left-1/2 h-px -translate-x-1/2 transform bg-gray-400 transition-all duration-1000 ease-out"
         :class="isAnimating ? 'w-full' : 'w-0'"
       ></div>
       <div class="p-12">
-        <h1 class="text-4xl text-gray-900 mb-6 font-bold">
+        <h1 class="mb-6 text-4xl font-bold text-gray-900">
           {{ store.questionnaireData?.meta.title }}
         </h1>
-        <p class="text-xl text-gray-700 mb-6">
+        <p class="mb-6 text-xl text-gray-700">
           {{ store.questionnaireData?.meta.description }}
         </p>
 
@@ -19,7 +19,7 @@
         </ButtonComponent>
       </div>
       <div
-        class="border-expand-bottom absolute bottom-0 left-1/2 transform -translate-x-1/2 h-px bg-gray-400 transition-all duration-1000 ease-out"
+        class="border-expand-bottom absolute bottom-0 left-1/2 h-px -translate-x-1/2 transform bg-gray-400 transition-all duration-1000 ease-out"
         :class="isAnimating ? 'w-full' : 'w-0'"
       ></div>
     </div>

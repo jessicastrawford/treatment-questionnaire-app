@@ -9,5 +9,5 @@ export interface FilteringQuestionConfig extends BaseQuestionConfig {
   order: number;
 
   // Will be populated dynamically, so optional
-  options: OptionConfig[];
+  options?: OptionConfig[];
 }

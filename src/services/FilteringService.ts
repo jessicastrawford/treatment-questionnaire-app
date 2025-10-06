@@ -1,6 +1,6 @@
 import { FILTERING_QUESTIONS_CONFIG } from "@/config/FilteringQuestions";
 import type { FilteringQuestionConfig } from "@/types/FilteringQuestion";
-import type { OptionConfig } from "@/types/QuestionConfig";
+import type { OptionConfig, AnswerConfig } from "@/types/QuestionConfig";
 import type { Treatment } from "@/types/Questionnaire";
 
 //Using an config here to handle the question text/behaviour, how to extract options from the data (optionExtractor), how to apply filters (filterApplier) and how to order or skip. This is so that a) its easier to maintain, any ne questions or behavioural changes that need to be made its in one place, and also allowing the behaviour to be driven by the data structures not the code.
@@ -30,6 +30,12 @@ export class FilteringService {
     const config = this.config.find((q) => q.id === questionId);
     if (!config) return null; // Fail-fast pattern for invalid inputs
 
+    // VALIDATION: Skip questions with incomplete configuration
+    if (!config.allowSkip && !config.optionExtractor) {
+      console.warn(`Skipping question "${questionId}": no optionExtractor and skip not allowed`);
+      return null; // Skip this question entirely
+    }
+
     const options: OptionConfig[] = [];
 
     // Conditional option injection - allows questions to have different UX patterns
@@ -44,8 +50,14 @@ export class FilteringService {
     // Higher-order functions: optionExtractor is a function stored as data
     // This enables dynamic behavior where different questions use different extraction logic
     // Spread operator flattens returned array into individual options for consistent structure
+    // Dynamic options
     if (config.optionExtractor) {
-      options.push(...config.optionExtractor(relevantTreatments));
+      try {
+        options.push(...config.optionExtractor(relevantTreatments));
+      } catch (error) {
+        console.error(`Error generating options for "${questionId}":`, error);
+        return null; // Skip on extraction error
+      }
     }
 
     // Template Method Pattern: All questions follow identical output structure
@@ -81,6 +93,21 @@ export class FilteringService {
   // Defensive programming with optional chaining and fallback
   getFirstQuestionId(): string | null {
     return this.config[0]?.id || null;
+  }
+
+  applyAllFilters(treatments: Treatment[], filteringAnswers: Map<string, AnswerConfig>) {
+    let filteredTreatments = treatments;
+
+    filteringAnswers.forEach((answer, questionId) => {
+      if (!answer.isFiltering) return;
+
+      const config = this.config.find((q) => q.id === questionId);
+      if (!config?.filterApplier) return;
+
+      filteredTreatments = config.filterApplier(filteredTreatments, answer.values);
+    });
+
+    return filteredTreatments;
   }
 }
 

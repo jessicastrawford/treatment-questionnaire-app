@@ -24,7 +24,6 @@ export function processQuestionAnswer(
     .filter(Boolean) as string[];
 
   const treatmentPages = nextDestinations.filter((dest) => dest in questionnaireData.results);
-
   const questionPages = nextDestinations.filter((dest) => dest in questionnaireData.questions);
 
   let nextDestination: string | null = null;

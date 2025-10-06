@@ -1,11 +1,10 @@
-<!-- src/components/Button.vue -->
 <template>
   <button
     v-bind="$attrs"
     :disabled="disabled"
     :class="[
       // base
-      'group relative overflow-hidden font-semibold transition-all duration-200 ease-linear rounded focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed',
+      'group relative overflow-hidden rounded font-semibold transition-all duration-200 ease-linear focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
       sizeClasses,
       variantClasses,
       focusClasses,
@@ -23,7 +22,7 @@
     <!-- Arrow Icon (conditionally rendered) -->
     <div
       v-if="showIcon"
-      class="absolute top-0 h-full flex items-center justify-center z-10 transition-opacity duration-200 ease-linear"
+      class="absolute top-0 z-10 flex h-full items-center justify-center transition-opacity duration-200 ease-linear"
       :class="[
         arrowPositionClasses,
         // only reveal on hover when interactive
@@ -38,7 +37,7 @@
 
     <!-- Button Text -->
     <span
-      class="block relative z-10 transition-transform duration-200 ease-linear"
+      class="relative z-10 block transition-transform duration-200 ease-linear"
       :class="[textSpacingClasses, showIcon ? hoverTranslationClasses : '']"
     >
       <slot />
@@ -133,6 +132,7 @@ const hoverTranslationClasses = computed(() => {
   const iconPos = props.iconPosition === "auto" ? (props.variant === "primary" ? "right" : "left") : props.iconPosition;
 
   const direction = iconPos === "right" ? "-translate-x" : "translate-x";
+  console.log("direction", direction);
 
   switch (props.size) {
     case "small":

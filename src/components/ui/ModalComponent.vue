@@ -1,17 +1,14 @@
 <template>
   <div
     v-if="isOpen"
-    class="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/10"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm"
     @click="handleBackdropClick"
   >
-    <div
-      class="relative bg-white rounded-lg shadow-xl mx-4 p-6 max-h-[90vh] overflow-y-auto"
-      @click.stop
-    >
+    <div class="relative mx-4 max-h-[90vh] overflow-y-auto rounded-lg bg-white p-6 shadow-xl" @click.stop>
       <button
         v-if="showCloseButton"
         @click="$emit('close')"
-        class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10 cursor-pointer"
+        class="absolute top-4 right-4 z-10 cursor-pointer text-gray-400 transition-colors hover:text-gray-600"
       >
         <i class="pi pi-times"></i>
       </button>
@@ -22,23 +19,23 @@
 
 <script setup lang="ts">
 interface Props {
-  isOpen: boolean
-  showCloseButton?: boolean
-  closeOnBackdrop?: boolean
+  isOpen: boolean;
+  showCloseButton?: boolean;
+  closeOnBackdrop?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   showCloseButton: true,
   closeOnBackdrop: true,
-})
+});
 
 const emit = defineEmits<{
-  close: []
-}>()
+  close: [];
+}>();
 
 const handleBackdropClick = () => {
   if (props.closeOnBackdrop) {
-    emit('close')
+    emit("close");
   }
-}
+};
 </script>

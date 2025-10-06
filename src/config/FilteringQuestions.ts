@@ -21,7 +21,7 @@ const formatDowntimeOption = (option: string) => {
   // Find the appropriate category
   const category = DOWNTIME_OPTIONS_CONFIG.find((config) => maxDays <= config.maxDays);
   // Return the category, or fallback to "significant" if no match found
-  return category?.label || DOWNTIME_OPTIONS_CONFIG[DOWNTIME_OPTIONS_CONFIG.length - 1].label;
+  throw new Error("Deliberate error inside formatDowntimeOption");
 };
 
 const extractDowntimeOptions = (treatments: Treatment[]): OptionConfig[] => {
@@ -111,8 +111,6 @@ const filterByBudget = (treatments: Treatment[], selectedValues: string[]): Trea
 // Treatment Count Filtering
 const extractTreatmentCountOptions = (treatments: Treatment[]): OptionConfig[] => {
   const counts = [...new Set(treatments.map((t) => t.number_of_treatments).filter(Boolean))];
-
-  console.log("counts", counts);
 
   // Check what types of treatments we have
   const hasSingleTreatments = counts.some((count) => {

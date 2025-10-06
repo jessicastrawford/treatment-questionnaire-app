@@ -1,200 +1,41 @@
-@import './base.css';
-@import 'tailwindcss';
-@import 'primeicons/primeicons.css';
+@import "./base.css";
+@import "tailwindcss";
+@import "primeicons/primeicons.css";
+
+@theme {
+  --color-vivid-red: #cf2e2e;
+  --color-luminous-vivid-orange: #ff6900;
+  --color-luminous-vivid-amber: #fcb900;
+  --color-light-green-cyan: #7bdcb5;
+  --color-vivid-green-cyan: #00d084;
+  --color-pale-cyan-blue: #8ed1fc;
+  --color-vivid-cyan-blue: #0693e3;
+  --color-pale-pink: #f78da7;
+  --color-vivid-purple: #9b51e0;
+  --color-cyan-bluish-gray: #abb8c3;
+  --color-white: #ffffff;
+
+  --color-contrast: #333;
+  --color-contrast-2: #545352;
+  --color-contrast-3: #e35f1d;
+  --color-base: #d3d3d3;
+  --color-base-2: #f5f5f5;
+  --color-base-3: #fff;
+  --color-accent: #df3978;
+  --color-accent-2: #16a1a2;
+  --color-accent-2-1: #e6f3f3;
+  --color-accent-2-2: #b3e0e0;
+  --color-accent-3: #070607;
+
+  --font-sans:
+    -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+}
 
 @layer base {
   body {
-    font-family:
-      -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
-      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-family: var(--font-sans);
   }
 }
 
-/* src/assets/styles/tailwind.css */
-
-/* Using the @layer directive to define custom colors */
-@layer base {
-  :root {
-    --color-cyan-bluish-gray: #abb8c3;
-    --color-white: #ffffff;
-    --color-pale-pink: #f78da7;
-    --color-vivid-red: #cf2e2e;
-    --color-luminous-vivid-orange: #ff6900;
-    --color-luminous-vivid-amber: #fcb900;
-    --color-light-green-cyan: #7bdcb5;
-    --color-vivid-green-cyan: #00d084;
-    --color-pale-cyan-blue: #8ed1fc;
-    --color-vivid-cyan-blue: #0693e3;
-    --color-vivid-purple: #9b51e0;
-
-    /* Additional colors */
-    --contrast: #333;
-    --contrast-2: #545352;
-    --contrast-3: #e35f1d;
-    --base: #d3d3d3;
-    --base-2: #f5f5f5;
-    --base-3: #fff;
-    --accent: #df3978;
-    --accent-2: #16a1a2;
-    --accent-2-1: #e6f3f3;
-    --accent-2-2: #b3e0e0;
-    --accent-3: #070607;
-  }
-}
-
-/* Think about how this would look if it was to scale - this would become messy */
-
-/* src/assets/styles/tailwind.css */
-
-/* Custom background classes using the defined colors */
-@layer utilities {
-  .bg-vivid-red {
-    background-color: var(--color-vivid-red);
-  }
-
-  .bg-luminous-vivid-orange {
-    background-color: var(--color-luminous-vivid-orange);
-  }
-
-  .bg-light-green-cyan {
-    background-color: var(--color-light-green-cyan);
-  }
-
-  .bg-vivid-green-cyan {
-    background-color: var(--color-vivid-green-cyan);
-  }
-
-  .bg-pale-pink {
-    background-color: var(--color-pale-pink);
-  }
-
-  .bg-vivid-purple {
-    background-color: var(--color-vivid-purple);
-  }
-
-  .bg-white {
-    background-color: var(--color-white);
-  }
-
-  /* Additional background colors */
-  .bg-contrast {
-    background-color: var(--contrast);
-  }
-
-  .bg-contrast-2 {
-    background-color: var(--contrast-2);
-  }
-
-  .bg-contrast-3 {
-    background-color: var(--contrast-3);
-  }
-
-  .bg-base {
-    background-color: var(--base);
-  }
-
-  .bg-base-2 {
-    background-color: var(--base-2);
-  }
-
-  .bg-base-3 {
-    background-color: var(--base-3);
-  }
-
-  .bg-accent {
-    background-color: var(--accent);
-  }
-
-  .bg-accent-2 {
-    background-color: var(--accent-2);
-  }
-
-  .bg-accent-3 {
-    background-color: var(--accent-3);
-  }
-
-  /* Custom text color classes */
-  .text-vivid-red {
-    color: var(--color-vivid-red);
-  }
-
-  .text-luminous-vivid-orange {
-    color: var(--color-luminous-vivid-orange);
-  }
-
-  .text-light-green-cyan {
-    color: var(--color-light-green-cyan);
-  }
-
-  .text-vivid-green-cyan {
-    color: var(--color-vivid-green-cyan);
-  }
-
-  .text-pale-pink {
-    color: var(--color-pale-pink);
-  }
-
-  .text-vivid-purple {
-    color: var(--color-vivid-purple);
-  }
-
-  .text-white {
-    color: var(--color-white);
-  }
-
-  /* Additional text colors */
-  .text-contrast {
-    color: var(--contrast);
-  }
-
-  .text-contrast-2 {
-    color: var(--contrast-2);
-  }
-
-  .text-contrast-3 {
-    color: var(--contrast-3);
-  }
-
-  .text-base {
-    color: var(--base);
-  }
-
-  .text-base-2 {
-    color: var(--base-2);
-  }
-
-  .text-base-3 {
-    color: var(--base-3);
-  }
-
-  .text-accent {
-    color: var(--accent);
-  }
-
-  .text-accent-2 {
-    color: var(--accent-2);
-  }
-
-  .text-accent-3 {
-    color: var(--accent-3);
-  }
-}
-
-@keyframes pulse-outline-once {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  70% {
-    transform: scale(1.35);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1.35);
-    opacity: 0;
-  }
-}
-.animate-pulse-outline-once {
-  animation: pulse-outline-once 0.8s ease-out;
-  will-change: transform, opacity;
-}
+@source inline("group-hover:-translate-x-2 group-hover:translate-x-2 group-hover:-translate-x-3 group-hover:translate-x-3 group-hover:-translate-x-4 group-hover:translate-x-4");
